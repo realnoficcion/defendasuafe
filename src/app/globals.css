@@ -92,7 +92,7 @@ html, body {
 
 /* Title text — sunset gradient */
 .shimmer-text {
-  background: linear-gradient(135deg, #fde4a8, #f5a623, #e8900a) !important;
+  background: linear-gradient(135deg, #f5a623, #e8900a, #c47208) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
