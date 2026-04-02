@@ -48,6 +48,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000);
+
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -56,7 +59,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         model: "google/gemini-2.0-flash-001",
-        max_tokens: 400,
+        max_tokens: 600,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           {
@@ -65,7 +68,10 @@ export async function POST(request: NextRequest) {
           },
         ],
       }),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeout);
 
     const data = await res.json();
 

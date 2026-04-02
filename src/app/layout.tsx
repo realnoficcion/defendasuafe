@@ -45,7 +45,7 @@ export default function RootLayout({
         {/* Celestial background */}
         <div className="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
           <img
-            src="/bg.png"
+            src="/bg.webp"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
