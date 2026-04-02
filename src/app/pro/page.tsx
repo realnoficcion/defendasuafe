@@ -155,7 +155,7 @@ export default function ProPage() {
 
       {/* Category selector */}
       <div className="mb-4">
-        <label className="text-xs font-medium text-slate-700 uppercase tracking-wider mb-2 block">
+        <label className="text-xs font-medium text-white/90 uppercase tracking-wider mb-2 block">
           Tema
         </label>
         <div className="flex flex-wrap gap-2">
@@ -177,7 +177,7 @@ export default function ProPage() {
 
       {/* Situation input */}
       <div className="mb-4">
-        <label className="text-xs font-medium text-slate-700 uppercase tracking-wider mb-2 block">
+        <label className="text-xs font-medium text-white/90 uppercase tracking-wider mb-2 block">
           Descreva a situação
         </label>
         <textarea

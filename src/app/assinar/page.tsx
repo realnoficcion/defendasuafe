@@ -9,7 +9,7 @@ export default function AssinarPage() {
         <h1 className="font-serif text-2xl font-bold shimmer-text">
           Libere todo seu potencial
         </h1>
-        <p className="text-sm text-slate-600 mt-2">
+        <p className="text-sm text-white/90 mt-2">
           Argumentos ilimitados + IA personalizada
         </p>
       </header>
