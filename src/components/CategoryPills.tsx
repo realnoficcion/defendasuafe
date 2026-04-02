@@ -10,7 +10,7 @@ interface CategoryPillsProps {
 
 export function CategoryPills({ selected, onSelect }: CategoryPillsProps) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none px-1 -mx-1">
+    <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none px-5 -mx-5">
       <button
         onClick={() => onSelect("todos")}
         className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all ${

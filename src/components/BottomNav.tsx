@@ -23,7 +23,7 @@ export function BottomNav() {
                 key={item.href}
                 href={item.href}
                 className={`flex flex-col items-center gap-1 transition-colors ${
-                  isActive ? "text-sunset-600" : "text-slate-500"
+                  isActive ? "text-sunset-400" : "text-slate-400"
                 }`}
               >
                 <item.icon />
