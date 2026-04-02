@@ -50,7 +50,6 @@ export default function RootLayout({
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/25" />
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(255,255,255,0.9) 100%)" }} />
         </div>
 
         <div className="relative mx-auto max-w-md min-h-dvh">
