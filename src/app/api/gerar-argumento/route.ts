@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.0-flash-exp:free",
+        model: "qwen/qwen3.6-plus-preview:free",
         max_tokens: 400,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
@@ -65,14 +65,14 @@ export async function POST(request: NextRequest) {
       }),
     });
 
+    const data = await res.json();
+
     if (!res.ok) {
       return NextResponse.json(
         { success: false, error: "Erro ao gerar resposta. Tente novamente." },
         { status: 500 }
       );
     }
-
-    const data = await res.json();
     const text = data.choices?.[0]?.message?.content ?? "";
 
     const jsonMatch = text.match(/\{[\s\S]*\}/);
