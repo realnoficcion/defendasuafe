@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sky-50: #fffaf5;
+  --color-sky-100: #fff5eb;
+  --color-sky-200: #ffe8d0;
+
+  --color-slate-50: #fefcfa;
+  --color-slate-100: #faf6f1;
+  --color-slate-200: #f0e8de;
+  --color-slate-300: #ddd0c0;
+  --color-slate-400: #a89580;
+  --color-slate-500: #7a6b5a;
+  --color-slate-600: #5c4f40;
+  --color-slate-700: #43382c;
+  --color-slate-800: #2c2318;
+  --color-slate-900: #1a1208;
+
+  --color-sunset-50: #fffbf0;
+  --color-sunset-100: #fef3d6;
+  --color-sunset-200: #fde4a8;
+  --color-sunset-300: #fbd070;
+  --color-sunset-400: #f5a623;
+  --color-sunset-500: #e8900a;
+  --color-sunset-600: #c47208;
+
+  --color-warm-50: #fffbf5;
+  --color-warm-100: #fef3e2;
+  --color-warm-200: #fde4b8;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overscroll-behavior: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Glass effects — dark translucent */
+.glass {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Subtle glow — warm sunset */
+.glow-soft {
+  box-shadow: 0 2px 16px rgba(245, 166, 35, 0.15),
+    0 4px 32px rgba(245, 166, 35, 0.06);
+}
+
+.glow-accent {
+  box-shadow: 0 4px 20px rgba(232, 144, 10, 0.2),
+    0 8px 40px rgba(232, 144, 10, 0.08);
+}
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Title text — sunset gradient */
+.shimmer-text {
+  background: linear-gradient(135deg, #fde4a8, #f5a623, #e8900a) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none;
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* Divine light rays behind header */
+@keyframes rotateRays {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.divine-light {
+  position: absolute;
+  inset: -40px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(251, 191, 36, 0.15) 10deg,
+    transparent 20deg,
+    transparent 40deg,
+    rgba(251, 191, 36, 0.1) 50deg,
+    transparent 60deg,
+    transparent 80deg,
+    rgba(253, 224, 71, 0.12) 90deg,
+    transparent 100deg,
+    transparent 120deg,
+    rgba(251, 191, 36, 0.15) 130deg,
+    transparent 140deg,
+    transparent 160deg,
+    rgba(253, 224, 71, 0.1) 170deg,
+    transparent 180deg,
+    transparent 200deg,
+    rgba(251, 191, 36, 0.12) 210deg,
+    transparent 220deg,
+    transparent 240deg,
+    rgba(253, 224, 71, 0.15) 250deg,
+    transparent 260deg,
+    transparent 280deg,
+    rgba(251, 191, 36, 0.1) 290deg,
+    transparent 300deg,
+    transparent 320deg,
+    rgba(253, 224, 71, 0.12) 330deg,
+    transparent 340deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  animation: rotateRays 30s linear infinite;
+  filter: blur(8px);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Pulse glow for splash */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Background image with blur overlay */
+.bg-celestial {
+  position: fixed;
+  inset: -20px;
+  z-index: 0;
+  background-image: url("/Gemini_Generated_Image_a60yn5a60yn5a60y.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+  transform: scale(1.1);
+}
+
+.bg-celestial::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 250, 245, 0.75);
+}
