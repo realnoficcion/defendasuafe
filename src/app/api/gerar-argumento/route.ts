@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "qwen/qwen3.6-plus-preview:free",
+        model: "google/gemini-2.0-flash-001",
         max_tokens: 400,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
