@@ -9,7 +9,7 @@ export default function AssinarPage() {
         <h1 className="font-serif text-2xl font-bold shimmer-text">
           Libere todo seu potencial
         </h1>
-        <p className="text-sm text-white/80 mt-2">
+        <p className="text-sm text-slate-600 mt-2">
           Argumentos ilimitados + IA personalizada
         </p>
       </header>
@@ -37,10 +37,10 @@ export default function AssinarPage() {
           <div key={benefit.title} className="glass rounded-2xl p-4 flex items-start gap-3">
             <div className="w-2 h-2 rounded-full bg-sunset-400 mt-1.5 shrink-0" />
             <div>
-              <p className="text-sm font-semibold text-white">
+              <p className="text-sm font-semibold text-slate-700">
                 {benefit.title}
               </p>
-              <p className="text-xs text-white/50">{benefit.desc}</p>
+              <p className="text-xs text-slate-500">{benefit.desc}</p>
             </div>
           </div>
         ))}
@@ -53,16 +53,16 @@ export default function AssinarPage() {
           <div className="absolute top-3 right-3 bg-gradient-to-r from-sunset-500 to-sunset-400 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">
             Mais popular
           </div>
-          <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
             Plano Anual
           </p>
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="font-serif text-3xl font-bold text-white">
+            <span className="font-serif text-3xl font-bold text-slate-800">
               R$83,90
             </span>
-            <span className="text-sm text-white/50">/ano</span>
+            <span className="text-sm text-slate-500">/ano</span>
           </div>
-          <p className="text-xs text-sunset-300 mb-4">
+          <p className="text-xs text-sunset-600 mb-4">
             R$6,99/mês — economize 30%
           </p>
           <button className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold glow-accent active:scale-[0.98] transition-transform">
@@ -72,23 +72,23 @@ export default function AssinarPage() {
 
         {/* Monthly */}
         <div className="glass rounded-2xl p-5">
-          <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
             Plano Mensal
           </p>
           <div className="flex items-baseline gap-1 mb-3">
-            <span className="font-serif text-2xl font-bold text-white">
+            <span className="font-serif text-2xl font-bold text-slate-800">
               R$9,90
             </span>
-            <span className="text-sm text-white/50">/mês</span>
+            <span className="text-sm text-slate-500">/mês</span>
           </div>
-          <button className="w-full rounded-xl glass py-3 text-sm font-medium text-white/70 active:scale-95 transition-transform">
+          <button className="w-full rounded-xl glass py-3 text-sm font-medium text-slate-600 active:scale-95 transition-transform">
             Escolher mensal
           </button>
         </div>
       </div>
 
       {/* Trust */}
-      <p className="text-center text-xs text-white/80 mt-6">
+      <p className="text-center text-xs text-slate-600 mt-6">
         Cancele quando quiser · Pagamento seguro via Google Play
       </p>
 

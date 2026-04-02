@@ -15,7 +15,7 @@ export function BottomNav() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-md">
-        <div className="glass rounded-t-2xl px-6 py-3 flex justify-around items-center border-t border-white/10">
+        <div className="glass rounded-t-2xl px-6 py-3 flex justify-around items-center border-t border-white/30">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -23,7 +23,7 @@ export function BottomNav() {
                 key={item.href}
                 href={item.href}
                 className={`flex flex-col items-center gap-1 transition-colors ${
-                  isActive ? "text-sunset-300" : "text-white/50"
+                  isActive ? "text-sunset-600" : "text-slate-500"
                 }`}
               >
                 <item.icon />

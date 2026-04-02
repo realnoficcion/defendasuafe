@@ -49,7 +49,7 @@ export default function RootLayout({
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-black/15" />
         </div>
 
         <div className="relative mx-auto max-w-md min-h-dvh">

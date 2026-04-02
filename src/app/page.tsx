@@ -57,7 +57,7 @@ export default function HomePage() {
           <h1 className="font-serif text-4xl font-bold shimmer-text">
             Defenda Sua Fé
           </h1>
-          <p className="text-sm text-white/80 mt-1">
+          <p className="text-sm text-slate-600 mt-1">
             Argumentos poderosos para<br />evangelizar com sabedoria
           </p>
         </header>
@@ -72,7 +72,7 @@ export default function HomePage() {
         <h1 className="font-serif text-4xl font-bold shimmer-text">
           Defenda Sua Fé
         </h1>
-        <p className="text-sm text-white/80 mt-1">
+        <p className="text-sm text-slate-600 mt-1">
           Argumentos poderosos para<br />evangelizar com sabedoria
         </p>
       </header>
@@ -84,7 +84,7 @@ export default function HomePage() {
 
       {/* Quote counter */}
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs text-white/50">
+        <span className="text-xs text-slate-500">
           {shuffled.length > 0 ? `${index + 1} de ${shuffled.length}` : ""}
         </span>
       </div>
@@ -97,10 +97,10 @@ export default function HomePage() {
       {/* Pro upsell */}
       <div className="mt-6 glass rounded-2xl p-4 flex items-center gap-3">
         <div className="flex-1">
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-slate-700">
             Quer argumentos personalizados?
           </p>
-          <p className="text-xs text-white/50">
+          <p className="text-xs text-slate-500">
             A IA gera respostas sob medida pra sua conversa
           </p>
         </div>

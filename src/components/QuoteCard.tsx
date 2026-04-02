@@ -28,28 +28,28 @@ export function QuoteCard({ quote, onNext }: QuoteCardProps) {
       {category && (
         <div className="mb-4 flex items-center gap-2">
           <span className="text-lg">{category.icon}</span>
-          <span className="text-xs font-medium text-sunset-300 uppercase tracking-wider">
+          <span className="text-xs font-medium text-sunset-600 uppercase tracking-wider">
             {category.label}
           </span>
         </div>
       )}
 
       {/* Quote text */}
-      <blockquote className="font-serif text-xl font-semibold leading-relaxed text-white mb-4">
+      <blockquote className="font-serif text-xl font-semibold leading-relaxed text-slate-800 mb-4">
         &ldquo;{quote.argument}&rdquo;
       </blockquote>
 
       {/* Source */}
       {quote.source && (
-        <p className="text-sm text-white/50 mb-4">— {quote.source}</p>
+        <p className="text-sm text-slate-500 mb-4">— {quote.source}</p>
       )}
 
       {/* Why it works */}
       <div className="glass rounded-xl p-4 mb-6">
-        <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+        <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
           Por que funciona
         </p>
-        <p className="text-sm text-white/70 leading-relaxed">
+        <p className="text-sm text-slate-600 leading-relaxed">
           {quote.whyItWorks}
         </p>
       </div>
@@ -58,7 +58,7 @@ export function QuoteCard({ quote, onNext }: QuoteCardProps) {
       <div className="flex gap-2">
         <button
           onClick={handleCopy}
-          className="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 glass text-xs font-medium text-white/70 active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 glass text-xs font-medium text-slate-600 active:scale-95 transition-transform"
         >
           {copied ? (
             <>
@@ -73,7 +73,7 @@ export function QuoteCard({ quote, onNext }: QuoteCardProps) {
 
         <button
           onClick={handleShare}
-          className="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 glass text-xs font-medium text-white/70 active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 glass text-xs font-medium text-slate-600 active:scale-95 transition-transform"
         >
           <ShareIcon /> Enviar
         </button>

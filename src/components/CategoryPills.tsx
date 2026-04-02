@@ -16,7 +16,7 @@ export function CategoryPills({ selected, onSelect }: CategoryPillsProps) {
         className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all ${
           selected === "todos"
             ? "bg-gradient-to-r from-sunset-500 to-sunset-400 text-white shadow-sm glow-soft"
-            : "glass text-white/60"
+            : "glass text-slate-600"
         }`}
       >
         Todos
@@ -28,7 +28,7 @@ export function CategoryPills({ selected, onSelect }: CategoryPillsProps) {
           className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all ${
             selected === cat.slug
               ? "bg-gradient-to-r from-sunset-500 to-sunset-400 text-white shadow-sm glow-soft"
-              : "glass text-white/60"
+              : "glass text-slate-600"
           }`}
         >
           {cat.icon} {cat.label}

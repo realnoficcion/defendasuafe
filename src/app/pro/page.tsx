@@ -77,10 +77,10 @@ export default function ProPage() {
         <div className="flex-1 flex flex-col gap-4 animate-fade-in-up">
           {/* Main argument */}
           <div className="glass-card rounded-3xl p-5">
-            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-2">
+            <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-2">
               O que falar
             </p>
-            <p className="font-serif text-lg font-semibold text-white leading-relaxed">
+            <p className="font-serif text-lg font-semibold text-slate-800 leading-relaxed">
               &ldquo;{response.argument}&rdquo;
             </p>
           </div>
@@ -88,20 +88,20 @@ export default function ProPage() {
           {/* Analogy */}
           {response.analogy && (
             <div className="glass rounded-2xl p-4">
-              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+              <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
                 Analogia
               </p>
-              <p className="text-sm text-white/70">{response.analogy}</p>
+              <p className="text-sm text-slate-600">{response.analogy}</p>
             </div>
           )}
 
           {/* Question */}
           {response.question && (
             <div className="glass rounded-2xl p-4">
-              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+              <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
                 Pergunta pra inverter o jogo
               </p>
-              <p className="text-sm text-white/70 italic">
+              <p className="text-sm text-slate-600 italic">
                 &ldquo;{response.question}&rdquo;
               </p>
             </div>
@@ -109,10 +109,10 @@ export default function ProPage() {
 
           {/* Why it works */}
           <div className="glass rounded-2xl p-4">
-            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+            <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
               Por que funciona
             </p>
-            <p className="text-sm text-white/70">{response.whyItWorks}</p>
+            <p className="text-sm text-slate-600">{response.whyItWorks}</p>
           </div>
 
           {/* Action buttons */}
@@ -123,7 +123,7 @@ export default function ProPage() {
                   `"${response.argument}"\n\nEnviado via Defenda Sua Fé`
                 )
               }
-              className="flex-1 rounded-xl glass py-3 text-sm font-medium text-white/70 active:scale-95 transition-transform"
+              className="flex-1 rounded-xl glass py-3 text-sm font-medium text-slate-600 active:scale-95 transition-transform"
             >
               Copiar resposta
             </button>
@@ -148,14 +148,14 @@ export default function ProPage() {
         <h1 className="font-serif text-2xl font-bold shimmer-text">
           Resposta Personalizada
         </h1>
-        <p className="text-sm text-white/80 mt-1">
+        <p className="text-sm text-slate-600 mt-1">
           Descreva a situação e a IA gera a resposta perfeita
         </p>
       </header>
 
       {/* Category selector */}
       <div className="mb-4">
-        <label className="text-xs font-medium text-white/80 uppercase tracking-wider mb-2 block">
+        <label className="text-xs font-medium text-slate-600 uppercase tracking-wider mb-2 block">
           Tema
         </label>
         <div className="flex flex-wrap gap-2">
@@ -166,7 +166,7 @@ export default function ProPage() {
               className={`rounded-full px-3 py-1.5 text-sm transition-all ${
                 selectedCategory === cat.slug
                   ? "bg-gradient-to-r from-sunset-500 to-sunset-400 text-white font-semibold shadow-sm"
-                  : "glass text-white/60"
+                  : "glass text-slate-500"
               }`}
             >
               {cat.icon} {cat.label}
@@ -177,18 +177,18 @@ export default function ProPage() {
 
       {/* Situation input */}
       <div className="mb-4">
-        <label className="text-xs font-medium text-white/80 uppercase tracking-wider mb-2 block">
+        <label className="text-xs font-medium text-slate-600 uppercase tracking-wider mb-2 block">
           Descreva a situação
         </label>
         <textarea
           value={situation}
           onChange={(e) => setSituation(e.target.value)}
           placeholder="Ex: Meu amigo disse que a ciência já provou que Deus não existe e que eu sou ignorante por acreditar..."
-          className="w-full h-32 rounded-2xl glass p-4 text-sm text-white placeholder:text-white/30 resize-none focus:outline-none focus:ring-2 focus:ring-sunset-300/40"
+          className="w-full h-32 rounded-2xl glass p-4 text-sm text-slate-800 placeholder:text-slate-400 resize-none focus:outline-none focus:ring-2 focus:ring-sunset-400/40"
           maxLength={500}
         />
         <div className="text-right mt-1">
-          <span className="text-xs text-white/80">{situation.length}/500</span>
+          <span className="text-xs text-slate-600">{situation.length}/500</span>
         </div>
       </div>
 
@@ -202,7 +202,7 @@ export default function ProPage() {
           <button
             key={example}
             onClick={() => setSituation(example)}
-            className="text-xs text-white/60 glass rounded-full px-3 py-1.5 active:scale-95 transition-transform"
+            className="text-xs text-slate-500 glass rounded-full px-3 py-1.5 active:scale-95 transition-transform"
           >
             &ldquo;{example.slice(0, 40)}...&rdquo;
           </button>
