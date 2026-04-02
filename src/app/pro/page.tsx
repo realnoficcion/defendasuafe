@@ -58,6 +58,90 @@ export default function ProPage() {
     await navigator.clipboard.writeText(text);
   };
 
+  const handleNewQuestion = () => {
+    setResponse(null);
+    setSituation("");
+    setError("");
+  };
+
+  // Response view — full screen
+  if (response) {
+    return (
+      <div className="flex flex-col min-h-dvh px-5 pb-24 pt-safe">
+        <header className="pt-12 pb-4 text-center">
+          <h1 className="font-serif text-2xl font-bold shimmer-text">
+            Sua Resposta
+          </h1>
+        </header>
+
+        <div className="flex-1 flex flex-col gap-4 animate-fade-in-up">
+          {/* Main argument */}
+          <div className="glass-card rounded-3xl p-5">
+            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-2">
+              O que falar
+            </p>
+            <p className="font-serif text-lg font-semibold text-white leading-relaxed">
+              &ldquo;{response.argument}&rdquo;
+            </p>
+          </div>
+
+          {/* Analogy */}
+          {response.analogy && (
+            <div className="glass rounded-2xl p-4">
+              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+                Analogia
+              </p>
+              <p className="text-sm text-white/70">{response.analogy}</p>
+            </div>
+          )}
+
+          {/* Question */}
+          {response.question && (
+            <div className="glass rounded-2xl p-4">
+              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+                Pergunta pra inverter o jogo
+              </p>
+              <p className="text-sm text-white/70 italic">
+                &ldquo;{response.question}&rdquo;
+              </p>
+            </div>
+          )}
+
+          {/* Why it works */}
+          <div className="glass rounded-2xl p-4">
+            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
+              Por que funciona
+            </p>
+            <p className="text-sm text-white/70">{response.whyItWorks}</p>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex gap-3 mt-auto">
+            <button
+              onClick={() =>
+                handleCopy(
+                  `"${response.argument}"\n\nEnviado via Defenda Sua Fé`
+                )
+              }
+              className="flex-1 rounded-xl glass py-3 text-sm font-medium text-white/70 active:scale-95 transition-transform"
+            >
+              Copiar resposta
+            </button>
+            <button
+              onClick={handleNewQuestion}
+              className="flex-1 rounded-xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-3 text-sm font-semibold text-white active:scale-95 transition-transform"
+            >
+              Nova pergunta
+            </button>
+          </div>
+        </div>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
+  // Form view
   return (
     <div className="flex flex-col min-h-dvh px-5 pb-24 pt-safe">
       <header className="pt-12 pb-6 text-center">
@@ -144,58 +228,6 @@ export default function ProPage() {
       {/* Error */}
       {error && (
         <p className="mt-4 text-sm text-red-400 text-center">{error}</p>
-      )}
-
-      {/* Response */}
-      {response && (
-        <div className="mt-6 glass-card rounded-3xl p-6 animate-fade-in-up">
-          <div className="mb-4">
-            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-2">
-              O que falar
-            </p>
-            <p className="font-serif text-lg font-semibold text-white leading-relaxed">
-              &ldquo;{response.argument}&rdquo;
-            </p>
-          </div>
-
-          {response.analogy && (
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
-                Analogia
-              </p>
-              <p className="text-sm text-white/70">{response.analogy}</p>
-            </div>
-          )}
-
-          {response.question && (
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
-                Pergunta pra inverter o jogo
-              </p>
-              <p className="text-sm text-white/70 italic">
-                &ldquo;{response.question}&rdquo;
-              </p>
-            </div>
-          )}
-
-          <div className="glass rounded-xl p-3 mb-4">
-            <p className="text-xs font-semibold text-sunset-300 uppercase tracking-wider mb-1">
-              Por que funciona
-            </p>
-            <p className="text-sm text-white/70">{response.whyItWorks}</p>
-          </div>
-
-          <button
-            onClick={() =>
-              handleCopy(
-                `"${response.argument}"\n\nEnviado via Defenda Sua Fé`
-              )
-            }
-            className="w-full rounded-xl glass py-3 text-sm font-medium text-white/70 active:scale-95 transition-transform"
-          >
-            Copiar resposta
-          </button>
-        </div>
       )}
 
       <BottomNav />
