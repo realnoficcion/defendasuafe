@@ -81,7 +81,7 @@ export default function ProPage() {
               O que falar
             </p>
             <p className="font-serif text-lg font-semibold text-slate-800 leading-relaxed">
-              &ldquo;{response.argument}&rdquo;
+              {response.argument}
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function ProPage() {
                 Pergunta pra inverter o jogo
               </p>
               <p className="text-sm text-slate-700 italic">
-                &ldquo;{response.question}&rdquo;
+                {response.question}
               </p>
             </div>
           )}

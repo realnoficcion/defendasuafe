@@ -36,7 +36,7 @@ export function QuoteCard({ quote, onNext }: QuoteCardProps) {
 
       {/* Quote text */}
       <blockquote className="font-serif text-xl font-semibold leading-relaxed text-slate-800 mb-4">
-        &ldquo;{quote.argument}&rdquo;
+        {quote.argument}
       </blockquote>
 
       {/* Source */}
