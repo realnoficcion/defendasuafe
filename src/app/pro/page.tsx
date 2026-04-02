@@ -148,7 +148,7 @@ export default function ProPage() {
         <h1 className="font-serif text-2xl font-bold shimmer-text">
           Resposta Personalizada
         </h1>
-        <p className="text-sm text-slate-700 mt-1">
+        <p className="text-sm text-white/90 mt-1">
           Descreva a situação e a IA gera a resposta perfeita
         </p>
       </header>

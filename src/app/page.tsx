@@ -57,7 +57,7 @@ export default function HomePage() {
           <h1 className="font-serif text-4xl font-bold shimmer-text">
             Defenda Sua Fé
           </h1>
-          <p className="text-sm text-slate-600 mt-1">
+          <p className="text-sm text-white/90 mt-1">
             Argumentos poderosos para<br />evangelizar com sabedoria
           </p>
         </header>
@@ -72,7 +72,7 @@ export default function HomePage() {
         <h1 className="font-serif text-4xl font-bold shimmer-text">
           Defenda Sua Fé
         </h1>
-        <p className="text-sm text-slate-600 mt-1">
+        <p className="text-sm text-white/90 mt-1">
           Argumentos poderosos para<br />evangelizar com sabedoria
         </p>
       </header>
