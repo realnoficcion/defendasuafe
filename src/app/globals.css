@@ -92,12 +92,12 @@ html, body {
 
 /* Title text — sunset gradient */
 .shimmer-text {
-  background: linear-gradient(135deg, #f5a623, #e8900a, #c47208) !important;
+  background: linear-gradient(135deg, #fde4a8, #f5a623, #e8900a) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   text-shadow: none;
-  filter: drop-shadow(0 1px 8px rgba(255, 255, 255, 0.6)) drop-shadow(0 2px 12px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
 }
 
 /* Divine light rays behind header */
