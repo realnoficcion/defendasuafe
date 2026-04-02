@@ -95,12 +95,12 @@ export default function HomePage() {
       )}
 
       {/* Pro upsell */}
-      <div className="mt-6 glass rounded-2xl p-4 flex items-center gap-3">
+      <div className="mt-6 rounded-2xl p-4 flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-white/60">
         <div className="flex-1">
-          <p className="text-sm font-medium text-slate-700">
+          <p className="text-sm font-medium text-slate-800">
             Quer argumentos personalizados?
           </p>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600">
             A IA gera respostas sob medida pra sua conversa
           </p>
         </div>
