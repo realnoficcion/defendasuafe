@@ -42,6 +42,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body suppressHydrationWarning className="font-sans text-slate-800 min-h-dvh antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}`,
+          }}
+        />
         {/* Celestial background */}
         <div className="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
           <img

@@ -183,23 +183,3 @@ html, body {
 .animate-pulse-glow {
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
-
-/* Background image with blur overlay */
-.bg-celestial {
-  position: fixed;
-  inset: -20px;
-  z-index: 0;
-  background-image: url("/Gemini_Generated_Image_a60yn5a60yn5a60y.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  filter: blur(20px);
-  transform: scale(1.1);
-}
-
-.bg-celestial::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 250, 245, 0.75);
-}
