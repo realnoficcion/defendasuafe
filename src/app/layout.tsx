@@ -58,12 +58,6 @@ export default function RootLayout({
         </div>
 
         <div className="relative mx-auto max-w-md min-h-dvh">
-          {/* Soft warm ambient orbs */}
-          <div className="pointer-events-none fixed inset-0 overflow-hidden">
-            <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-sunset-200/25 blur-3xl" />
-            <div className="absolute top-1/3 -left-20 h-64 w-64 rounded-full bg-sunset-100/30 blur-3xl" />
-            <div className="absolute bottom-20 right-10 h-48 w-48 rounded-full bg-warm-200/35 blur-3xl" />
-          </div>
           <div className="relative z-10">{children}</div>
         </div>
       </body>
