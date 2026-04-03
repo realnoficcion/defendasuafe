@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.defendasuafe.app",
-      "sha256_cert_fingerprints": ["TODO_REPLACE_WITH_SHA256_FROM_ANDROID_STUDIO"]
+      "sha256_cert_fingerprints": ["04:7E:DD:7B:38:33:FC:EA:E4:42:19:F8:A1:5D:63:DC:6A:3D:C0:93:0E:86:78:F5:42:DB:19:7F:D4:03:B4:9B"]
     }
   }
 ]
