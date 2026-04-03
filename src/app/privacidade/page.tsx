@@ -99,7 +99,18 @@ export default function PrivacidadePage() {
           </p>
 
           <h2 className="font-serif text-lg font-bold text-slate-800 pt-2">
-            10. Contato
+            10. LGPD
+          </h2>
+          <p>
+            Este App está em conformidade com a Lei Geral de Proteção de Dados
+            (Lei nº 13.709/2018). Como não coletamos dados pessoais
+            identificáveis, as obrigações de tratamento de dados não se aplicam.
+            Caso isso mude no futuro, atualizaremos esta política e
+            solicitaremos seu consentimento quando necessário.
+          </p>
+
+          <h2 className="font-serif text-lg font-bold text-slate-800 pt-2">
+            11. Contato
           </h2>
           <p>
             Dúvidas sobre esta política? Entre em contato pelo e-mail:{" "}
