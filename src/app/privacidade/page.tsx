@@ -115,10 +115,10 @@ export default function PrivacidadePage() {
           <p>
             Dúvidas sobre esta política? Entre em contato pelo e-mail:{" "}
             <a
-              href="mailto:contato@omninnection.com"
+              href="mailto:defendasuafeapp@gmail.com"
               className="text-sunset-600 underline"
             >
-              contato@omninnection.com
+              defendasuafeapp@gmail.com
             </a>
           </p>
         </div>
