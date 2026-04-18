@@ -209,21 +209,13 @@ export default function ProPage() {
         ))}
       </div>
 
-      {/* Generate button */}
-      <button
-        onClick={handleGenerate}
-        disabled={loading}
-        className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold text-base glow-accent active:scale-[0.98] transition-transform disabled:opacity-50"
+      {/* Generate button — locked until subscription */}
+      <a
+        href="/assinar"
+        className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold text-base glow-accent active:scale-[0.98] transition-transform block text-center"
       >
-        {loading ? (
-          <span className="flex items-center justify-center gap-2">
-            <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            Gerando...
-          </span>
-        ) : (
-          "Gerar Resposta"
-        )}
-      </button>
+        Assine o Pro para gerar respostas
+      </a>
 
       {/* Error */}
       {error && (
