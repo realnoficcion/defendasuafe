@@ -4,7 +4,10 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.defendasuafe.app",
-      "sha256_cert_fingerprints": ["04:7E:DD:7B:38:33:FC:EA:E4:42:19:F8:A1:5D:63:DC:6A:3D:C0:93:0E:86:78:F5:42:DB:19:7F:D4:03:B4:9B"]
+      "sha256_cert_fingerprints": [
+        "04:7E:DD:7B:38:33:FC:EA:E4:42:19:F8:A1:5D:63:DC:6A:3D:C0:93:0E:86:78:F5:42:DB:19:7F:D4:03:B4:9B",
+        "7D:9A:16:D1:16:24:49:B5:C8:06:5F:B5:15:C5:89:D1:E8:67:B1:4F:47:C4:22:E0:1F:B4:14:39:EB:43:E1:67"
+      ]
     }
   }
 ]
