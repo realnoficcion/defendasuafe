@@ -1,4 +1,4 @@
-const CACHE_NAME = "defenda-sua-fe-v1";
+const CACHE_NAME = "defenda-sua-fe-v3";
 const OFFLINE_URL = "/";
 
 self.addEventListener("install", (event) => {

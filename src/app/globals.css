@@ -54,7 +54,7 @@
 
 html, body {
   overscroll-behavior: none;
-  background: transparent;
+  background: linear-gradient(180deg, #ff9a56 0%, #ffb47a 40%, #ffd4a3 100%);
   margin: 0;
   padding: 0;
 }

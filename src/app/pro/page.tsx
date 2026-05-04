@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { BottomNav } from "@/components/BottomNav";
 import { categories } from "@/data/categories";
+import { useProStatus } from "@/hooks/useProStatus";
+import { listExistingPurchases } from "@/lib/digital-goods";
 import type { CategorySlug } from "@/types";
 
 interface AIResponse {
@@ -13,11 +15,14 @@ interface AIResponse {
 }
 
 export default function ProPage() {
+  const { status, loading } = useProStatus();
   const [situation, setSituation] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<CategorySlug>("ciencia");
-  const [loading, setLoading] = useState(false);
+  const [generating, setGenerating] = useState(false);
   const [response, setResponse] = useState<AIResponse | null>(null);
   const [error, setError] = useState("");
+
+  const isPro = status.tier === "pro";
 
   const handleGenerate = async () => {
     if (situation.trim().length < 10) {
@@ -25,17 +30,26 @@ export default function ProPage() {
       return;
     }
 
-    setLoading(true);
+    setGenerating(true);
     setError("");
     setResponse(null);
 
     try {
+      const purchases = await listExistingPurchases();
+      const purchase = purchases[0];
+      if (!purchase) {
+        setError("Não encontramos sua assinatura. Tente reabrir o app.");
+        return;
+      }
+
       const res = await fetch("/api/gerar-argumento", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           situation: situation.trim(),
           categorySlug: selectedCategory,
+          productId: purchase.productId,
+          purchaseToken: purchase.purchaseToken,
         }),
       });
 
@@ -50,7 +64,7 @@ export default function ProPage() {
     } catch {
       setError("Erro de conexão. Verifique sua internet e tente novamente.");
     } finally {
-      setLoading(false);
+      setGenerating(false);
     }
   };
 
@@ -64,7 +78,14 @@ export default function ProPage() {
     setError("");
   };
 
-  // Response view — full screen
+  if (loading) {
+    return (
+      <div className="flex flex-col min-h-dvh px-5 pb-24 pt-safe items-center justify-center">
+        <p className="text-white/80 text-sm">Carregando...</p>
+      </div>
+    );
+  }
+
   if (response) {
     return (
       <div className="flex flex-col min-h-dvh px-5 pb-24 pt-safe">
@@ -75,7 +96,6 @@ export default function ProPage() {
         </header>
 
         <div className="flex-1 flex flex-col gap-4 animate-fade-in-up">
-          {/* Main argument */}
           <div className="glass-card rounded-3xl p-5">
             <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-2">
               O que falar
@@ -85,7 +105,6 @@ export default function ProPage() {
             </p>
           </div>
 
-          {/* Analogy */}
           {response.analogy && (
             <div className="glass rounded-2xl p-4">
               <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
@@ -95,7 +114,6 @@ export default function ProPage() {
             </div>
           )}
 
-          {/* Question */}
           {response.question && (
             <div className="glass rounded-2xl p-4">
               <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
@@ -107,7 +125,6 @@ export default function ProPage() {
             </div>
           )}
 
-          {/* Why it works */}
           <div className="glass rounded-2xl p-4">
             <p className="text-xs font-semibold text-sunset-600 uppercase tracking-wider mb-1">
               Por que funciona
@@ -115,7 +132,6 @@ export default function ProPage() {
             <p className="text-sm text-slate-700">{response.whyItWorks}</p>
           </div>
 
-          {/* Action buttons */}
           <div className="flex gap-3 mt-auto">
             <button
               onClick={() =>
@@ -141,7 +157,6 @@ export default function ProPage() {
     );
   }
 
-  // Form view
   return (
     <div className="flex flex-col min-h-dvh px-5 pb-24 pt-safe">
       <header className="pt-12 pb-6 text-center">
@@ -153,7 +168,6 @@ export default function ProPage() {
         </p>
       </header>
 
-      {/* Category selector */}
       <div className="mb-4">
         <label className="text-xs font-medium text-white/90 uppercase tracking-wider mb-2 block">
           Tema
@@ -175,7 +189,6 @@ export default function ProPage() {
         </div>
       </div>
 
-      {/* Situation input */}
       <div className="mb-4">
         <label className="text-xs font-medium text-white/90 uppercase tracking-wider mb-2 block">
           Descreva a situação
@@ -192,7 +205,6 @@ export default function ProPage() {
         </div>
       </div>
 
-      {/* Quick examples */}
       <div className="flex flex-wrap gap-2 mb-6">
         {[
           "Meu colega disse que fé é coisa de gente fraca",
@@ -209,15 +221,23 @@ export default function ProPage() {
         ))}
       </div>
 
-      {/* Generate button — locked until subscription */}
-      <a
-        href="/assinar"
-        className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold text-base glow-accent active:scale-[0.98] transition-transform block text-center"
-      >
-        Assine o Pro para gerar respostas
-      </a>
+      {isPro ? (
+        <button
+          onClick={handleGenerate}
+          disabled={generating}
+          className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold text-base glow-accent active:scale-[0.98] transition-transform disabled:opacity-60"
+        >
+          {generating ? "Gerando..." : "Gerar resposta"}
+        </button>
+      ) : (
+        <a
+          href="/assinar"
+          className="w-full rounded-2xl bg-gradient-to-r from-sunset-500 to-sunset-400 py-4 text-white font-semibold text-base glow-accent active:scale-[0.98] transition-transform block text-center"
+        >
+          Assine o Pro para gerar respostas
+        </a>
+      )}
 
-      {/* Error */}
       {error && (
         <p className="mt-4 text-sm text-red-400 text-center">{error}</p>
       )}

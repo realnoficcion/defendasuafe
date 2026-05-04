@@ -29,3 +29,13 @@ export interface GeneratedArgument {
 }
 
 export type SubscriptionTier = "free" | "pro";
+
+export type ProductId = "pro_mensal" | "pro_anual";
+
+export interface ProStatus {
+  readonly tier: SubscriptionTier;
+  readonly productId?: ProductId;
+  readonly expiresAt?: number;
+  readonly verifiedAt: number;
+}
+

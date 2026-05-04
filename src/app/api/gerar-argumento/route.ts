@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { verifySubscriptionPurchase } from "@/lib/google-play";
+import { PRODUCT_IDS } from "@/lib/digital-goods";
+import type { ProductId } from "@/types";
 
 const SYSTEM_PROMPT = `Você é um mentor de apologética cristã evangélica. Seu objetivo é ajudar cristãos a articularem sua fé de forma inteligente, respeitosa e convincente.
 
@@ -24,7 +27,7 @@ Responda APENAS com o JSON, sem nenhum texto antes ou depois.`;
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { situation, categorySlug } = body;
+    const { situation, categorySlug, productId, purchaseToken } = body;
 
     if (!situation || typeof situation !== "string" || situation.length < 10) {
       return NextResponse.json(
@@ -37,6 +40,26 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { success: false, error: "Selecione uma categoria." },
         { status: 400 }
+      );
+    }
+
+    if (
+      !productId ||
+      !PRODUCT_IDS.includes(productId as ProductId) ||
+      !purchaseToken ||
+      typeof purchaseToken !== "string"
+    ) {
+      return NextResponse.json(
+        { success: false, error: "Assinatura Pro necessária." },
+        { status: 403 }
+      );
+    }
+
+    const proStatus = await verifySubscriptionPurchase(productId, purchaseToken);
+    if (proStatus.tier !== "pro") {
+      return NextResponse.json(
+        { success: false, error: "Assinatura Pro inativa." },
+        { status: 403 }
       );
     }
 
